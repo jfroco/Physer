@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta id="viewport" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <meta name="apple-mobile-web-app-title" content="Phaser App">
+
+        <script type="text/javascript" src="phaser-arcade-physics.min.js"  charset="UTF-8"></script>
+        <script type="text/javascript" src="one-way-collision.js"  charset="UTF-8"></script>
+        <script>
+            window.addEventListener ("touchmove", function (event) { event.preventDefault (); }, false);
+            if (typeof window.devicePixelRatio != 'undefined' && window.devicePixelRatio > 2) {
+                var meta = document.getElementById ("viewport");
+                meta.setAttribute ('content', 'width=device-width, initial-scale=' + (2 / window.devicePixelRatio) + ', user-scalable=no');
+            }
+        </script>
+        <style>
+        html,body { margin: 0; padding: 0; height: 100%; overflow: hidden; }
+        </style>
+    </head>
+    <body bgcolor="#643A37">
+        <div id="physer-example" style="width: 800px; height: 600px; margin-left: auto; margin-right: auto;"></div>
+    </body>
+</html>

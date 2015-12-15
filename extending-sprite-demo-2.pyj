@@ -1,0 +1,42 @@
+import Physer
+
+
+class MonsterBunny(Physer.Sprite):
+
+    def __init__(self, game, rotate_speed):
+        Physer.Sprite.__init__(self,
+                               game,
+                               game.world.randomX,
+                               game.world.randomY,
+                               'bunny')
+        self.anchor.setTo(0.5, 0.5)
+        self.rotateSpeed = rotate_speed
+        random_scale = 0.1 + Physer.random()
+        self.scale.setTo(random_scale, random_scale)
+        game.add.existing(self)
+
+    def update(self):
+        self.angle += self.rotateSpeed
+
+
+class Example(Physer.State):
+
+    def preload(self):
+        self.game.load.image('bunny', 'assets/sprites/bunny.png')
+
+    def create(self):
+        for i in range(0.1, 2, 0.1):
+            MonsterBunny(self.game, i)
+
+
+def main():
+    Physer.log("Starting game")
+    game = Physer.Game(800, 600,
+                       Physer.CANVAS,
+                       'physer-example',
+                       None, False, False)
+    game.state.add("Example", Example)
+    game.state.start("Example")
+
+if __name__ == '__main__':
+    Physer.onload(main)

@@ -1,0 +1,57 @@
+def log(*args):
+    console.log(*args)
+
+
+def onload(fn):
+    window.onload = fn
+
+
+
+def Game(width=800, height=800, renderer=Phaser.AUTO, parent='', state=None, transparent=False, antialias=True, physicsConfig=None):
+    return new Phaser.Game(width, height, renderer, parent, state, transparent, antialias, physicsConfig)
+
+
+def Rectangle(x, y, w, h):
+    return new Phaser.Rectangle(x, y, w, h)
+
+
+Sprite = Phaser.Sprite
+
+
+def sprite_init(self, game, x, y, texture):
+    self.game = game
+    Phaser.Sprite.call(self, game, x, y, texture)
+Sprite.__init__ = sprite_init
+
+
+Keyboard = Phaser.Keyboard
+Physics = Phaser.Physics
+ScaleManager = Phaser.ScaleManager
+Tilemap = Phaser.Tilemap
+AUTO = Phaser.AUTO
+CANVAS = Phaser.CANVAS
+WEBGL = Phaser.WEBGL
+
+
+random = Math.random
+
+def to_number(number):
+    return Number(number)
+
+
+class State:
+    def __init__(self, game):
+        # self.game = game  #Phaser does this automatically
+        pass
+
+    def init(self):
+        pass
+
+    def preload(self):
+        pass
+
+    def create(self):
+        pass
+
+    def update(self):
+        pass

@@ -1,29 +1,3 @@
-# Physer
-Physer is a wrapper for Phaser for RapydScript
-
-
-## Motivation
-
-I love to create web (and native) games, but also I love Python.
-
-Unfortunately Python is not very strong at the client-side. Javascript seems to be the winner. So I was resigned to learn JS.
-
-Fortunately, I found [RapydScript](https://github.com/atsepkov/RapydScript). RapydScript is a translator from a subset/special version of Python to Javascript.
-
-Physer is a super simple "wrapper" for [Phaser](http://phaser.io). Phaser is one of the most important game frameworks in the JS/HTML5 arena and the documentation and examples are great.
-
-I made Physer as a proof of concept, and to hide non-standard Python notation in my code editor (Sublime Text), like "new", but at the end of the day I was using it to make simple and fun games.
-
-## Goal
-
-I want to translate all [Phaser examples](http://phaser.io/examples) to RapydScript... I started with two that, I believe, are easy to understand and show how Physer works:
-
-
-### One way collision
-
-[Original example](http://phaser.io/examples/v2/arcade-physics/one-way-collision)
-
-```python
 import Physer
 
 
@@ -87,6 +61,3 @@ def main():
 
 if __name__ == '__main__':
     Physer.onload(main)
-
-
-```
