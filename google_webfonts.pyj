@@ -1,0 +1,55 @@
+import Physer
+
+class Example(Physer.State):
+
+    def preload(self):
+        self.game.load.script('webfont', 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js')
+
+    def create(self):
+        self.game.stage.setBackgroundColor('0x2d2d2d')
+
+        WebFont.load({
+		      google: {families: ['Revalia']},
+          	  active: def (): createText(self);
+        });
+
+def createText(self):
+    text = self.game.add.text(self.game.world.centerX, self.game.world.centerY, "- phaser -\nrocking with\ngoogle web fonts")
+    text.anchor.setTo(0.5)
+    text.font = 'Revalia'
+    text.fontSize = 60
+
+    # x0, y0 - x1, y1
+    grd = text.context.createLinearGradient(0, 0, 0, text.canvas.height)
+    grd.addColorStop(0, '#8ED6FF')
+    grd.addColorStop(1, '#004CB3')
+    text.fill = grd
+
+    text.align = 'center'
+    text.stroke = '#000000'
+    text.strokeThickness = 2
+    text.setShadow(5, 5, 'rgba(0,0,0,0.5)', 5)
+
+    text.inputEnabled = True
+    text.input.enableDrag()
+
+    def over():
+        text.fill = '#ff00ff'
+
+    def out():
+        text.fill = grd
+
+    text.events.onInputOver.add(over, self)
+    text.events.onInputOut.add(out, self)
+
+def main():
+    Physer.log("Starting game")
+    game = Physer.Game(800, 600,
+                       Physer.CANVAS,
+                       'physer-example',
+                       None, False, False)
+    game.state.add("Example", Example)
+    game.state.start("Example")
+
+if __name__ == '__main__':
+    Physer.onload(main)
