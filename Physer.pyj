@@ -1,28 +1,21 @@
 def log(*args):
     console.log(*args)
 
-
 def onload(fn):
     window.onload = fn
-
-
 
 def Game(width=800, height=800, renderer=Phaser.AUTO, parent='', state=None, transparent=False, antialias=True, physicsConfig=None):
     return new Phaser.Game(width, height, renderer, parent, state, transparent, antialias, physicsConfig)
 
-
 def Rectangle(x, y, w, h):
     return new Phaser.Rectangle(x, y, w, h)
 
-
 Sprite = Phaser.Sprite
-
 
 def sprite_init(self, game, x, y, texture):
     self.game = game
     Phaser.Sprite.call(self, game, x, y, texture)
 Sprite.__init__ = sprite_init
-
 
 Keyboard = Phaser.Keyboard
 Physics = Phaser.Physics
@@ -31,6 +24,7 @@ Tilemap = Phaser.Tilemap
 AUTO = Phaser.AUTO
 CANVAS = Phaser.CANVAS
 WEBGL = Phaser.WEBGL
+Timer = Phaser.Timer
 
 
 random = Math.random
